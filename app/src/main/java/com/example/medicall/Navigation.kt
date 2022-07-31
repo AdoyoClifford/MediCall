@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.medicall.ui.HomeScreen
+import com.example.medicall.presentation.HomeScreen
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
@@ -17,7 +17,8 @@ fun Navigation() {
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = Screens.SplashScreen.route) {
         composable(Screens.SplashScreen.route) {
-            SplashScreen(navController = navController)
+            //SplashScreen(navController = navController)
+            HomeScreen(navController = navController, auth = auth)
         }
         composable(Screens.SignInScreen.route) {
             SignInScreen(navController = navController, auth = auth) {}
@@ -27,7 +28,7 @@ fun Navigation() {
         }
 
         composable(Screens.HomeScreen.route) {
-            HomeScreen(navController = navController)
+            HomeScreen(navController = navController,auth = auth)
         }
 //        composable(route = Screens.MapScreen.route + "/{id}",
 //            arguments = listOf(navArgument(name = "id"){
