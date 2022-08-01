@@ -9,6 +9,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Card
+import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -88,8 +89,41 @@ fun HomeScreen(navController: NavController,auth: FirebaseAuth) {
                         .scale(scaleX = 0.5f, scaleY = 0.5f)
                 )
             }
-        Spacer(modifier = Modifier.height(16.dp))
+
+        AssistanceCards()
+        Text(text = "One Click Emergency Assistance", style = MaterialTheme.typography.h6, modifier = Modifier.padding(10.dp))
         PhotoGrid()
+    }
+}
+
+@Composable
+fun AssistanceCards() {
+    Card(
+        modifier = Modifier
+            .padding(12.dp)
+            .fillMaxWidth(),
+        border = BorderStroke(2.dp, Color.LightGray),
+        elevation = 8.dp,
+        shape = RoundedCornerShape(12.dp)
+    ) {
+        Row {
+            Image(
+                painter = painterResource(id = com.example.medicall.R.drawable.siren),
+                contentDescription = "siren",
+                modifier = Modifier
+                    .padding(bottom = 8.dp, top = 10.dp, start = 10.dp, end = 10.dp)
+            )
+            Text(
+                text = "Emergency Assistance",
+                style = MaterialTheme.typography.h6,
+                modifier = Modifier.padding(16.dp)
+            )
+            Icon(
+                painterResource(id = com.example.medicall.R.drawable.foward),
+                contentDescription = null,
+                modifier = Modifier.padding(16.dp)
+            )
+        }
     }
 }
 
@@ -108,7 +142,6 @@ fun PhotoGrid() {
 @Composable
 fun Cards(services: Services) {
     Card(
-      //  backgroundColor = Color.Red,
         modifier = Modifier
             .padding(12.dp)
             .fillMaxWidth(),

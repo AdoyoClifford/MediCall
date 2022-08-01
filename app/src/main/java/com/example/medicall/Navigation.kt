@@ -4,6 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.medicall.presentation.CardProfile
+import com.example.medicall.presentation.EmergencyProfileScreen
 import com.example.medicall.presentation.HomeScreen
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -18,7 +20,8 @@ fun Navigation() {
     NavHost(navController = navController, startDestination = Screens.SplashScreen.route) {
         composable(Screens.SplashScreen.route) {
             //SplashScreen(navController = navController)
-            HomeScreen(navController = navController, auth = auth)
+           // HomeScreen(navController = navController, auth = auth)
+            EmergencyProfileScreen()
         }
         composable(Screens.SignInScreen.route) {
             SignInScreen(navController = navController, auth = auth) {}
