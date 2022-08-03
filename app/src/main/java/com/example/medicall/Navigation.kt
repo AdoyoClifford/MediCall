@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.medicall.contact_list.ContactListScreen
 import com.example.medicall.presentation.CardProfile
 import com.example.medicall.presentation.EmergencyProfileScreen
 import com.example.medicall.presentation.HomeScreen
@@ -21,7 +22,11 @@ fun Navigation() {
         composable(Screens.SplashScreen.route) {
             //SplashScreen(navController = navController)
            // HomeScreen(navController = navController, auth = auth)
-            EmergencyProfileScreen()
+           // EmergencyProfileScreen()
+            ContactListScreen(onNavigate = {
+                navController.navigate(it.route)
+            })
+            
         }
         composable(Screens.SignInScreen.route) {
             SignInScreen(navController = navController, auth = auth) {}

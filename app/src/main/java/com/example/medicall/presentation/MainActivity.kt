@@ -15,7 +15,9 @@ import com.example.medicall.Navigation
 import com.example.medicall.SignInScreen
 import com.example.medicall.SplashScreen
 import com.example.medicall.ui.theme.TroniksTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
