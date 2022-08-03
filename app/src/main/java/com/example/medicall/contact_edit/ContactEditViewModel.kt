@@ -56,7 +56,7 @@ class ContactEditViewModel @Inject constructor(
             }
             is AddContactEvent.Save -> {
                 viewModelScope.launch {
-                    if (name.isNotBlank()) {
+                    if (name.isBlank()) {
                         sendUiEvent(UiEvent.ShowSnackBar(
                             message = "The name can't be empty",
                             action = ""

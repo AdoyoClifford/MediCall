@@ -1,9 +1,12 @@
 package com.example.medicall
 
 import androidx.compose.runtime.Composable
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
+import com.example.medicall.contact_edit.AddEditContactScreen
 import com.example.medicall.contact_list.ContactListScreen
 import com.example.medicall.presentation.CardProfile
 import com.example.medicall.presentation.EmergencyProfileScreen
@@ -20,14 +23,32 @@ fun Navigation() {
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = Screens.SplashScreen.route) {
         composable(Screens.SplashScreen.route) {
-            //SplashScreen(navController = navController)
-           // HomeScreen(navController = navController, auth = auth)
-           // EmergencyProfileScreen()
-            ContactListScreen(onNavigate = {
-                navController.navigate(it.route)
-            })
+            SplashScreen(navController = navController)
+
+            
             
         }
+        composable(Screens.ContactList.route) {
+            ContactListScreen(
+                onNavigate = {
+                    navController.navigate(it.route)
+                }
+            )
+        }
+        composable(
+            route = Screens.ContactEdit.route + "?contactId={contactId}",
+            arguments = listOf(
+                navArgument(name = "contactId") {
+                    type = NavType.IntType
+                    defaultValue = -1
+                }
+            )
+        ) {
+            AddEditContactScreen(onPopBackStack = {
+                navController.popBackStack()
+            })
+        }
+
         composable(Screens.SignInScreen.route) {
             SignInScreen(navController = navController, auth = auth) {}
         }
