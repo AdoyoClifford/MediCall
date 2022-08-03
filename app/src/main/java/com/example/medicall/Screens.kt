@@ -8,5 +8,7 @@ sealed class Screens(val route: String) {
     object ProfileScreen: Screens("profile")
     object EmergencyScreen: Screens("emergency")
     object MapScreen: Screens("doctor")
+    object ContactList: Screens("contact")
+    object ContactEdit: Screens("contact_edit")
 
 }
