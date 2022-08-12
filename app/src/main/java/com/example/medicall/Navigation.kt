@@ -1,5 +1,8 @@
+@file:OptIn(ExperimentalFoundationApi::class)
+
 package com.example.medicall
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -11,6 +14,7 @@ import com.example.medicall.contact_list.ContactListScreen
 import com.example.medicall.presentation.CardProfile
 import com.example.medicall.presentation.EmergencyProfileScreen
 import com.example.medicall.presentation.HomeScreen
+import com.example.medicall.presentation.HomeScreen2
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
@@ -25,8 +29,6 @@ fun Navigation() {
         composable(Screens.SplashScreen.route) {
             SplashScreen(navController = navController)
 
-            
-            
         }
         composable(Screens.ContactList.route) {
             ContactListScreen(
@@ -56,8 +58,8 @@ fun Navigation() {
             SignUpScreen(auth = auth, navController = navController) {}
         }
 
-        composable(Screens.HomeScreen.route) {
-            HomeScreen(navController = navController,auth = auth)
+        composable(Screens.HomeScreen2.route) {
+            HomeScreen2( auth = auth)
         }
 //        composable(route = Screens.MapScreen.route + "/{id}",
 //            arguments = listOf(navArgument(name = "id"){

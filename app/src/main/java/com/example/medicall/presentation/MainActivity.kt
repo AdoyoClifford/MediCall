@@ -26,8 +26,7 @@ class MainActivity : ComponentActivity() {
                 Surface(modifier = Modifier.fillMaxSize(),
                     color = Color(0xfff2f2f2)
                 ) {
-                //Navigation()
-                    HomeScreen2()
+                Navigation()
             }
         }
     }

@@ -22,49 +22,23 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.medicall.ui.theme.*
 import com.example.medicall.util.standardQuadFromTo
+import com.google.firebase.auth.FirebaseAuth
+import java.time.LocalDateTime
 
 @ExperimentalFoundationApi
 @Composable
-fun HomeScreen2() {
+fun HomeScreen2(auth: FirebaseAuth) {
+    val list = createFeatureList()
     Box(
         modifier = Modifier
             .background(DeepBlue)
             .fillMaxSize()
     ) {
         Column {
-            GreetingSection()
+            GreetingSection(auth)
             CurrentMeditation()
             FeatureSection(
-                features = listOf(
-                    Feature(
-                        title = "Sleep meditation",
-                        com.example.medicall.R.drawable.ic_ambulance,
-                        BlueViolet1,
-                        BlueViolet2,
-                        BlueViolet3
-                    ),
-                    Feature(
-                        title = "Tips for sleeping",
-                        com.example.medicall.R.drawable.ic_doctor,
-                        LightGreen1,
-                        LightGreen2,
-                        LightGreen3
-                    ),
-                    Feature(
-                        title = "Night island",
-                        com.example.medicall.R.drawable.ic_hospital,
-                        OrangeYellow1,
-                        OrangeYellow2,
-                        OrangeYellow3
-                    ),
-                    Feature(
-                        title = "Calming sounds",
-                        com.example.medicall.R.drawable.ic_contacts,
-                        Beige1,
-                        Beige2,
-                        Beige3
-                    )
-                )
+                features = list
             )
         }
     }
@@ -73,9 +47,29 @@ fun HomeScreen2() {
 
 
 @Composable
-fun GreetingSection(
-    name: String = "Philipp"
+fun GreetingSection(auth: FirebaseAuth
 ) {
+    val user = auth.currentUser
+    user?.let {
+        // Name, email address, and profile photo Url
+        val name = user.displayName
+        val email = user.email
+        val photoUrl = user.photoUrl
+
+        // Check if user's email is verified
+        val emailVerified = user.isEmailVerified
+
+        // The user's ID, unique to the Firebase project. Do NOT use this value to
+        // authenticate with your backend server, if you have one. Use
+        // FirebaseUser.getToken() instead.
+        val uid = user.uid
+    }
+
+
+
+    val current = LocalDateTime.now()
+
+
     Row(
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically,
@@ -87,11 +81,11 @@ fun GreetingSection(
             verticalArrangement = Arrangement.Center
         ) {
             Text(
-                text = "Good morning, $name",
+                text = "Hello ${user?.email!!.split("@")[0]}",
                 style = MaterialTheme.typography.h2
             )
             Text(
-                text = "We wish you have a good day!",
+                text = "Welcome Back!",
                 style = MaterialTheme.typography.body1
             )
         }
@@ -153,7 +147,7 @@ fun CurrentMeditation(
 fun FeatureSection(features: List<Feature>) {
     Column(modifier = Modifier.fillMaxWidth()) {
         Text(
-            text = "Features",
+            text = "Services",
             style = MaterialTheme.typography.h1,
             modifier = Modifier.padding(15.dp)
         )

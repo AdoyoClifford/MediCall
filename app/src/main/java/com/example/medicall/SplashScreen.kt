@@ -35,7 +35,7 @@ fun SplashScreen(navController: NavController) {
             )
         )
         delay(500)
-        navController.navigate(Screens.ContactList.route)
+        navController.navigate(Screens.SignInScreen.route)
     }
 
     Box(
