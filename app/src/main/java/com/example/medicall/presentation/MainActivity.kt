@@ -3,8 +3,8 @@ package com.example.medicall.presentation
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -12,22 +12,22 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.medicall.Navigation
-import com.example.medicall.SignInScreen
-import com.example.medicall.SplashScreen
-import com.example.medicall.ui.theme.TroniksTheme
+import com.example.medicall.ui.theme.MedicallTheme
 import dagger.hilt.android.AndroidEntryPoint
 
+@OptIn(ExperimentalFoundationApi::class)
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            TroniksTheme {
+            MedicallTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(),
                     color = Color(0xfff2f2f2)
                 ) {
-                Navigation()
+                //Navigation()
+                    HomeScreen2()
             }
         }
     }
@@ -41,7 +41,7 @@ fun Greeting(name: String) {
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    TroniksTheme {
+    MedicallTheme {
         Greeting("Android World")
     }
 }

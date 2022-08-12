@@ -2,14 +2,22 @@ package com.example.medicall.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Purple300 = Color(0xFFCD52FC)
-val Purple600 = Color(0xFF9F00F4)
-val Purple700 = Color(0xFF8100EF)
-val Purple800 = Color(0xFF0000E1)
-val Purple = Color(0xFF004763)
 
-val Red300 = Color(0xFFD00036)
-val Red800 = Color(0xFFEA6D7E)
-
-val Gray100 = Color(0xFFF5F5F5)
-val Gray900 = Color(0xFF212121)
+val TextWhite = Color(0xffeeeeee)
+val DeepBlue = Color(0xff06164c)
+val ButtonBlue = Color(0xff505cf3)
+val DarkerButtonBlue = Color(0xff566894)
+val LightRed = Color(0xfffc879a)
+val AquaBlue = Color(0xff9aa5c4)
+val OrangeYellow1 = Color(0xfff0bd28)
+val OrangeYellow2 = Color(0xfff1c746)
+val OrangeYellow3 = Color(0xfff4cf65)
+val Beige1 = Color(0xfffdbda1)
+val Beige2 = Color(0xfffcaf90)
+val Beige3 = Color(0xfff9a27b)
+val LightGreen1 = Color(0xff54e1b6)
+val LightGreen2 = Color(0xff36ddab)
+val LightGreen3 = Color(0xff11d79b)
+val BlueViolet1 = Color(0xffaeb4fd)
+val BlueViolet2 = Color(0xff9fa5fe)
+val BlueViolet3 = Color(0xff8f98fd)

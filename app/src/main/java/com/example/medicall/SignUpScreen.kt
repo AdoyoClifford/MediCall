@@ -13,10 +13,8 @@ import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.medicall.ui.theme.TroniksTheme
 import com.google.firebase.auth.FirebaseAuth
 
 sealed class SignUpEvent {

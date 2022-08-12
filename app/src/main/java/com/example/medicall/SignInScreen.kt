@@ -1,6 +1,5 @@
 package com.example.medicall
 
-import android.content.ContentValues.TAG
 import android.util.Log
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -14,11 +13,8 @@ import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.medicall.ui.theme.TroniksTheme
-import com.example.medicall.ui.theme.snackbarAction
 import com.google.firebase.auth.FirebaseAuth
 
 sealed class SignInEvent {
@@ -187,7 +183,7 @@ fun ErrorSnackbar(
                         TextButton(onClick = onDismiss) {
                             Text(
                                 text = "dismiss",
-                                color = MaterialTheme.colors.snackbarAction
+                                color = Color.White
                             )
                         }
                     }
@@ -199,20 +195,5 @@ fun ErrorSnackbar(
             .wrapContentHeight(Alignment.Bottom)
     )
 }
-//@Preview(name = "Sign In Dark Theme")
-//@Composable
-//fun SignInPreviewDark() {
-//    TroniksTheme(darkTheme = true) {
-//        SignInScreen{}
-//
-//    }
-//}
-//
-//@Preview(name = "Sign In Preview Light")
-//@Composable
-//fun SignInPreviewLight() {
-//    TroniksTheme(darkTheme = false) {
-//        SignInScreen{}
-//    }
-//}
+
 

@@ -5,6 +5,9 @@
       <map>
         <entry key="../../../../../layout/compose-model-1659178884047.xml" value="0.18611111111111112" />
         <entry key="../../../../../layout/compose-model-1659181539732.xml" value="0.18611111111111112" />
+        <entry key="app/src/main/res/drawable/doctor.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_doctor.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_search.xml" value="0.212" />
       </map>
     </option>
   </component>
