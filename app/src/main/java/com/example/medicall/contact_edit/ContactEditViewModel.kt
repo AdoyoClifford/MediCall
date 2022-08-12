@@ -30,6 +30,9 @@ class ContactEditViewModel @Inject constructor(
     var phone by mutableStateOf("")
     private set
 
+    var email by mutableStateOf("")
+    private set
+
     private val _uiEvent = Channel<UiEvent>()
     val uiEvent = _uiEvent.receiveAsFlow()
 
@@ -54,6 +57,9 @@ class ContactEditViewModel @Inject constructor(
             is AddContactEvent.OnPhoneChange -> {
                 phone = event.phone
             }
+            is AddContactEvent.OnEmailChange -> {
+                email = event.email
+            }
             is AddContactEvent.Save -> {
                 viewModelScope.launch {
                     if (name.isBlank()) {
@@ -67,6 +73,7 @@ class ContactEditViewModel @Inject constructor(
                         Contacts(
                             name = name,
                             phone = phone,
+                            email = email,
                             isDone = contact?.isDone?: false,
                             id = contact?.id
                         )

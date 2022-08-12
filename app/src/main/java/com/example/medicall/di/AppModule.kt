@@ -22,7 +22,7 @@ object AppModule {
             app,
             ContactDataBase::class.java,
             "contactDb"
-        ).build()
+        ).fallbackToDestructiveMigration().build()
     }
 
     @Provides
