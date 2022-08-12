@@ -11,10 +11,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.medicall.contact_edit.AddEditContactScreen
 import com.example.medicall.contact_list.ContactListScreen
-import com.example.medicall.presentation.CardProfile
-import com.example.medicall.presentation.EmergencyProfileScreen
 import com.example.medicall.presentation.HomeScreen
-import com.example.medicall.presentation.HomeScreen2
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
@@ -58,17 +55,19 @@ fun Navigation() {
             SignUpScreen(auth = auth, navController = navController) {}
         }
 
-        composable(Screens.HomeScreen2.route) {
-            HomeScreen2( auth = auth)
+        composable(Screens.HomeScreen.route) {
+            HomeScreen( navController,auth = auth)
         }
-//        composable(route = Screens.MapScreen.route + "/{id}",
-//            arguments = listOf(navArgument(name = "id"){
-//                type = NavType.IntType
-//            })) {entry ->
-////            MapScreen(navController, entry.arguments?.getInt("id") ?: 0)
-//            MapScreen(navController = navController, id = entry.arguments?.getInt("id"))
-//        }
-//
+        composable(route = Screens.ContactList.route + "/{id}",
+            arguments = listOf(navArgument(name = "id"){
+                type = NavType.IntType
+            })) {entry ->
+//            MapScreen(navController, entry.arguments?.getInt("id") ?: 0)
+            ContactListScreen({
+                navController.navigate(it.route)
+            })
+        }
+
 //        composable(Routes.TODO_LIST) {
 //            ContactListScreen(
 //                onNavigate = {
